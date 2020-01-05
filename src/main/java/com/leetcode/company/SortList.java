@@ -18,7 +18,38 @@ public class SortList {
         listNode2.next = listNode3;
         listNode3.next = listNode4;
 
-        mergeSortList(listNode);
+//        mergeSortList(listNode);
+        oddEvenList(listNode);
+    }
+
+    public static ListNode oddEvenList(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode dummy = new ListNode(-1);
+        ListNode newCur = dummy;
+        ListNode cur = head;
+        while(cur.next != null){
+            ListNode temp = cur.next;
+            cur.next = cur.next.next;
+            cur = cur.next;
+
+            temp.next = newCur.next;
+            newCur.next = temp;
+            newCur = newCur.next;
+            if(cur == null){
+                break;
+            }
+        }
+
+        ListNode tail = head;
+        while(tail.next != null){
+            tail = tail.next;
+        }
+
+        tail.next = dummy.next;
+        return head;
     }
 
     static ListNode mergeSortList(ListNode head) {
