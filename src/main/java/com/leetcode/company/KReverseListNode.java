@@ -71,17 +71,6 @@ public class KReverseListNode {
     }
 
 
-    public static ListNode moveStep(int step, ListNode head) {
-        for (int i = 0; i < step; i++) {
-            if (head.next == null) {
-                return head;
-            }
-            head = head.next;
-
-        }
-        return head;
-    }
-
 
     static ListNode reverse(ListNode head) {
         ListNode pre = null;
